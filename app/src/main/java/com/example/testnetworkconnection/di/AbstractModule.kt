@@ -1,5 +1,6 @@
 package com.example.testnetworkconnection.di
 
+import com.example.testnetworkconnection.core.Result
 import com.example.testnetworkconnection.data.model.ResponseCat
 import com.example.testnetworkconnection.data.repository.RepositoryImpl
 import com.example.testnetworkconnection.domain.CatsUseCase
@@ -19,7 +20,7 @@ abstract class AbstractModule {
     abstract fun bindRepository(repositoryImpl: RepositoryImpl) : Repository
 
     @Binds
-    abstract fun bindUseCase(useCase: CatsUseCase) : UseCase<Response<ResponseCat>>
+    abstract fun bindUseCase(useCase: CatsUseCase) : UseCase<Result>
 
 
 }

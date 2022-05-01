@@ -1,9 +1,12 @@
 package com.example.testnetworkconnection.di
 
+import android.content.Context
 import com.example.testnetworkconnection.data.api.ApiService
+import com.example.testnetworkconnection.data.api.NetworkHelper
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -27,4 +30,8 @@ class ApiModule {
     @Provides
     @Singleton
     fun provideService(retrofit: Retrofit) : ApiService = retrofit.create(ApiService::class.java)
+
+    @Provides
+    @Singleton
+    fun provideNetworkHelper(@ApplicationContext context : Context) = NetworkHelper(context)
 }
