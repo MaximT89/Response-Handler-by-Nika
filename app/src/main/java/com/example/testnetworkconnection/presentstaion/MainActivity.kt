@@ -37,6 +37,7 @@ class MainActivity : AppCompatActivity() {
                     is Result.Success<*> -> {
                         val response = it.data as Response<ResponseDog>
                         val body = response.body()
+                        val headers = response.headers()
                         binding.textId.text = body?.fileSizeBytes.toString()
                     }
                     is Result.Empty -> binding.textId.text = "Загрузите данные"
