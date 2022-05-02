@@ -15,10 +15,11 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 class ApiModule {
-
     @Provides
     @Singleton
-    fun provideBaseUrl() = "https://cat-fact.herokuapp.com/"
+    fun provideBaseUrl() = "https://random.dog/"
+//    fun provideBaseUrl() = "https://cat-fact.herokuapp.com/"
+
 
     @Provides
     @Singleton
@@ -33,5 +34,5 @@ class ApiModule {
 
     @Provides
     @Singleton
-    fun provideNetworkHelper(@ApplicationContext context : Context) = NetworkHelper(context)
+    fun provideNetworkHelper(@ApplicationContext context : Context) = NetworkHelper.Base(context)
 }
